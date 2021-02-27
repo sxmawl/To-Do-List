@@ -102,6 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+<<<<<<< HEAD
 
 
 # compiled output
@@ -193,3 +194,5 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+=======
+>>>>>>> 0469d1de0b5be93ff595ec6c7894fc9e7aff3dd2
