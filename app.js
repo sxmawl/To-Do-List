@@ -15,7 +15,6 @@ var options = {
   day: "numeric",
   weekday: "long"
 }
-
 var currentDate = today.toLocaleDateString("en-US", options);
 
 res.render("list", {
@@ -24,7 +23,7 @@ res.render("list", {
   });
 })
 
-app.post("/",function(req,res){
+app.post( "/", function(req,res){
 
   var item = req.body.newItem;
   items.push(item);
@@ -32,7 +31,7 @@ app.post("/",function(req,res){
 
 })
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen( process.env.PORT || 3000, function(){
 
    console.log("Server is running on port 3000");
 
