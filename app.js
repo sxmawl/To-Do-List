@@ -16,7 +16,7 @@ var options = {
   weekday: "long"
 }
 var currentDate = today.toLocaleDateString("en-US", options);
-items=[];
+
 res.render("list", {
   day:currentDate,
   newListItems:items
