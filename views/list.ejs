@@ -1,30 +1,14 @@
-<html lang="en" dir="ltr">
 
-<head>
-  <meta charset="utf-8">
-  <title>To Do List</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- Google fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto:wght@300&display=swap" rel="stylesheet">
-
-  <!-- FONT AWESOME -->
-  <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> -->
-
-</head>
-
-<body>
-
+<%- include("header") -%>
   <div class="container">
 
     <div class="heading-box" id="heading">
-      <h1> <%= day%> </h1>
+      <h1> <%= listTitle%> </h1>
     </div>
     <div class=item-box>
 
       <form class="formItem" action="/" method="post">
-        <button type="submit" name="button">+</button>
+        <button type="submit" name="list" value= <%= listTitle %>>+</button>
         <input type="text" class="input-item" placeholder="New Task" name="newItem" autocomplete="off">
         <!-- <div class="delete"><i class="fas fa-trash"></i></div> -->
       </form>
@@ -39,8 +23,4 @@
     </div>
 
   </div>
-
-
-</body>
-
-</html>
+  <%- include("footer") -%>

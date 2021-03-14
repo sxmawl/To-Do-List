@@ -1,34 +1,52 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const date = require(__dirname + '/date.js');
 
 const app = express();
-var items = ["Wake Up", "Go above", "And beyond"];
+const items = ["Wake Up", "Go above", "And beyond"];
+const workItems=[];
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.set('view engine','ejs');
 
 app.get("/",function(req,res){
 
-var today = new Date();
-var options = {
-  month: "long",
-  day: "numeric",
-  weekday: "long"
-}
-var currentDate = today.toLocaleDateString("en-US", options);
+const day = date.getDate();
 
 res.render("list", {
-  day:currentDate,
+
+  listTitle:day,
   newListItems:items
+
   });
 })
 
 app.post( "/", function(req,res){
 
-  var item = req.body.newItem;
+  let item = req.body.newItem;
+  if (req.body.list == 'Work'){
+    workItems.push(item);
+    res.redirect("/work");
+  }else{
   items.push(item);
   res.redirect("/");
+}
 
+
+})
+
+app.get("/work", function(req,res){
+
+res.render("list",{
+  listTitle: "Work list",
+  newListItems: workItems
+ })
+})
+
+app.get("/about", function(req,res){
+
+res.render("about");
 })
 
 app.listen( process.env.PORT || 3000, function(){
