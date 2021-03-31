@@ -46,6 +46,7 @@ h1 {
   background-color: #2e2e2e;
   margin: 0;
   width: 68%;
+  text-align: center;
   border: 1px solid #1c1c1c;
 }
 #heading {
@@ -97,7 +98,8 @@ p {
 }
 
 form {
-  text-align: center;
+  width: 75%;
+  margin: 0;
 }
 
 button {
