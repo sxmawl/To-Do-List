@@ -7,7 +7,7 @@ const app = express();
 const items = ["Wake Up", "Go above", "And beyond"];
 const workItems=[];
 
-mongoose.connect("mongodb://localhost:27017/todoList2DB", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://admin-saksham:Sak1302@cluster0.1nyke.mongodb.net/todoList2DB", {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -101,7 +101,7 @@ app.get("/:customListName",function(req,res){
           name: listName,
           items: defaultItems
         })
-        
+
         list.save();
         res.redirect("/"+ listName);
         
@@ -147,8 +147,14 @@ app.get("/about", function(req,res){
 res.render("about");
 })
 
-app.listen( process.env.PORT || 3000, function(){
 
-   console.log("Server is running on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen( port, function(){
+
+   console.log("Server is running.");
 
 })
