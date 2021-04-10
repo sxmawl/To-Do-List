@@ -68,6 +68,15 @@ app.get("/", function(req, res) {
 
 app.post("/", function(req, res){
 
+   if(req.body.newItem.trim() == ''){
+     if(req.body.list == 'Today'){
+       res.redirect("/");
+     }else{
+       res.redirect("/" + req.body.list )
+     }
+
+   }
+
   const itemName = req.body.newItem;
   const listName = req.body.list;
 
